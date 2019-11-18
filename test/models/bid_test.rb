@@ -1,7 +1,10 @@
-require 'test_helper'
+RSpec.describe Bid, :type => :model do
+  describe "Associations" do
+    it { should belong_to(:bidder) }
+    it { should belong_to(:auction) }
+  end
 
-class BidTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  describe "Validations" do
+    it { should validate_presence_of(:bidder) }
+  end
 end
