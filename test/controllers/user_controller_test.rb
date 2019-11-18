@@ -1,7 +1,21 @@
-require 'test_helper'
+require 'rails_helper'
 
-class UserControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+RSpec.describe User, :type => :model do
+  subject { described_class.new(password: "some_password", email: "john@doe.com") }
+
+  describe "Validations" do
+    it "is valid with valid attributes" do
+      expect(subject).to be_valid
+    end
+
+    it "is not valid without a password" do
+      subject.password = nil
+      expect(subject).to_not be_valid
+    end
+
+    it "is not valid without an email" do
+      subject.email = nil
+      expect(subject).to_not be_valid
+    end
+  end
 end
