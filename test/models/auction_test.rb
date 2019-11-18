@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class AuctionTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+ Rspec.describe Auction, :type => :model do |variable|
+ 	
+ end
+
 end
